@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1人営業のための無料サンプル｜初日30分チェックリスト＋プロンプト3本＋フォロー期限チェッカー</title>
+<meta name="description" content="CRMを買うほどではない1人〜数人の営業・小規模事業者のための無料サンプル。初日30分チェックリスト、すぐ使えるプロンプト3本、登録不要のフォロー期限チェッカー（Python）を無料で公開しています。">
+<style>
+  body { font-family: sans-serif; line-height: 1.8; max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; color: #222; }
+  h1 { font-size: 1.6rem; line-height: 1.4; }
+  h2 { font-size: 1.2rem; margin-top: 2.2em; border-bottom: 2px solid #eee; padding-bottom: 4px; }
+  code, pre { background: #f5f5f5; }
+  pre { padding: 12px; overflow-x: auto; border-radius: 6px; }
+  .card { background: #f8f9fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin: 16px 0; }
+  .warn { background: #fff8e6; border: 1px solid #f0d48a; border-radius: 8px; padding: 16px; }
+  a.btn { display: inline-block; background: #2563eb; color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none; margin: 4px 8px 4px 0; }
+  small { color: #666; }
+</style>
+</head>
+<body>
+<h1>1人営業のための無料サンプル</h1>
+<p>対象：1人〜数人の営業・小規模事業者。CRMを買うほどではないけれど、問い合わせ返信やフォロー漏れに時間を取られている人のための、無料・登録不要の見本です。</p>
+<p>中身は3つだけです。<strong>初日30分チェックリスト</strong>、<strong>すぐ使えるプロンプト3本</strong>、<strong>フォロー期限チェッカー（Pythonスクリプト）</strong>。まず30分だけ試して、自分の仕事に合うかどうか確かめてください。</p>
+
+<h2>1. 初日30分チェックリスト</h2>
+<ul>
+<li>0〜5分：顧客を5件だけ入力する（全部入れない）</li>
+<li>5〜15分：下のプロンプト1本（問い合わせ一次返信）を自分の文面に置き換えて保存する</li>
+<li>15〜25分：次アクション日を全件に入れる（空欄を作らない）</li>
+<li>25〜30分：フォロー期限チェッカーを実行し、期限切れがあれば今日の3件だけ対応する</li>
+<li>送信前チェック：宛名・金額・日程・約束内容を原文と照合する。AIの出力をそのまま送らない</li>
+</ul>
+
+<h2>2. プロンプト3本（無料サンプル）</h2>
+<p>共通ルール：[ ] の中を自分の情報に置き換える。出力は必ず原文・金額・日程と照合してから使う。断定・約束・値引きはAIに決めさせない。</p>
+<div class="card">
+<p><strong>1. 問い合わせ一次返信</strong></p>
+<p>次の問い合わせへの一次返信文を作ってください。相手：[顧客名]、用件：[用件]、伝えたい要点：[要点3つまで]。丁寧だが短く、次に必要な情報だけを1つ質問してください。約束や金額は断定しないでください。</p>
+</div>
+<div class="card">
+<p><strong>2. 見積フォロー</strong></p>
+<p>[顧客名]への見積送付後のフォロー文を作ってください。送付日：[日付]、見積内容：[概要]。催促にならない一文と、返信しやすい選択肢（日程2つ）を入れてください。</p>
+</div>
+<div class="card">
+<p><strong>3. 日程調整</strong></p>
+<p>[目的]の日程調整文を作ってください。候補：[候補日時3つ]、所要時間：[分]、場所／オンライン：[場所]。相手が1つ選ぶだけで済む形にしてください。</p>
+</div>
+
+<h2>3. フォロー期限チェッカー</h2>
+<p>CSVを読み、期限切れ／今日／明日／今週（2〜7日後）／それ以降に分けるPythonスクリプトです。ファイル読み込みと画面出力だけで動き、個人情報を外部に送りません。Python 3があれば動きます。</p>
+<p>
+<a class="btn" href="followup_free.py" download>スクリプトをダウンロード</a>
+<a class="btn" href="customers-sample.csv" download>サンプルCSVをダウンロード</a>
+</p>
+<p>CSVの列名：<code>顧客名, 次アクション, 次アクション日</code>（日付は YYYY-MM-DD）</p>
+<pre><code>python3 followup_free.py --csv customers.csv</code></pre>
+<p>実行結果の例（架空のサンプル5件）：期限切れ3件／今日0件／明日0件／今週1件／それ以降1件、直近の対応対象4件／全5件。</p>
+
+<h2>4. 使うときの注意</h2>
+<div class="warn">
+<ul>
+<li>AIの出力をそのまま送らない。宛名・金額・日程・約束内容は原文と照合する。</li>
+<li>原因の断定や補償の約束はしない。クレーム対応は謝罪と事実確認まで。</li>
+<li>顧客の個人情報を、公開ページや不特定のAI入力にそのまま載せない。</li>
+</ul>
+</div>
+
+<h2>5. 有料版について（予告のみ）</h2>
+<p>全12本のプロンプト＋顧客・案件管理シートの設計＋フォロー期限の自動抽出の説明は、18歳以降に有料版として公開予定です。価格・販売場所は、その時点の公式手数料を再確認してから決めます。</p>
+
+<p><small>このページとスクリプトは無料サンプルです。動作は手元の環境で確認してからご利用ください。</small></p>
+</body>
+</html>
